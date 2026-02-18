@@ -232,17 +232,15 @@ def main():
         print("\n==============================================")
         print("   SOBRE DIGITAL Y TRANSFERENCIA DE ARCHIVOS     ")
         print("==============================================")
-        print("1. Crear Sobre Digital (Cifrar archivo)")
-        print("   (Usa una llave RSA Pública para proteger el archivo)")
+        print("1. Crear Sobre Digital")
         print("")
-        print("2. Abrir Sobre Digital (Descifrar archivo)")
-        print("   (Requiere tu llave RSA Privada)")
+        print("2. Abrir Sobre Digital")
         print("")
         print("3. Enviar archivo")
-        print("   (Envía cualquier archivo a otra IP por puerto 8080)")
+        print("   (Envía cualquier archivo a otra IP por puerto 8081)")
         print("")
         print("4. Recibir archivos")
-        print("   (Escucha conexiones entrantes en el puerto 8080)")
+        print("   (Escucha conexiones entrantes en el puerto 8081)")
         print("")
         print("5. Salir")
         print("==============================================")
@@ -256,15 +254,13 @@ def main():
                 if not os.path.exists(input_file):
                     print("[-] El archivo no existe.")
                     continue
-                pub_key = input(">> Ruta de la llave PÚBLICA del destinatario (.pem): ")
                 output_file = input(">> Nombre/Ruta para guardar el sobre digital (ej. secreto.env): ")
-                write_digital_envelope(input_file, output_file, pub_key)
+                write_digital_envelope(input_file, output_file)
 
             elif opcion == '2':
                 input_file = input(">> Ruta del sobre digital (.env): ")
-                priv_key = input(">> Ruta de TU llave PRIVADA (.pem): ")
                 output_file = input(">> Nombre/Ruta para guardar el archivo descifrado: ")
-                read_digital_envelope(input_file, output_file, priv_key)
+                read_digital_envelope(input_file, output_file)
 
             elif opcion == '3':
                 ip = input(">> IP del servidor destino: ")
