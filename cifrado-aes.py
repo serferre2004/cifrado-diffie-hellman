@@ -53,9 +53,6 @@ def process_decrypt_file():
         return
 
     try:
-        with open(input_path, 'r') as f:
-            ciphertext_b64 = f.read()
-        
         password_path = input(">> Ingrese la ruta de la contraseña para descifrar: ")
         with open(password_path, "rb") as f:
            key = f.read()
