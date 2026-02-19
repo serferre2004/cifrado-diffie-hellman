@@ -36,7 +36,7 @@ def process_encrypt_file():
 
         # Guardamos con extensión .aes
         output_path = input_path + ".aes"
-        with open(output_path, 'w') as f:
+        with open(output_path, 'wb') as f:
             f.write(nonce + cifrado)
         
         print(f"[+] Archivo cifrado con éxito.")
